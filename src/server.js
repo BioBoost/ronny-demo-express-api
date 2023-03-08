@@ -2,9 +2,13 @@ const express = require('express')
 const app = express()
 const port = 3000
 const bodyParser = require('body-parser')
+const cors = require('cors')
+const morgan = require('morgan');
 
 // parse application/json
 app.use(bodyParser.json());
+app.use(cors());  // Allow all CORS requests
+app.use(morgan('combined'));  // Log HTTP requests
 
 let sensors = [
   { id: 1, type: 'temperature' },
